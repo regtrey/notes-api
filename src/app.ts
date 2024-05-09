@@ -13,11 +13,11 @@ import { requiresAuth } from './middleware/authMiddleware';
 
 const app = express();
 
-app.use(
-  cors({
-    origin: 'https://notes-client-7tvq.onrender.com',
-  })
-);
+// app.use(
+//   cors({
+//     origin: 'https://notes-client-7tvq.onrender.com',
+//   })
+// );
 app.use(morgan('dev'));
 
 // Accept JSON bodies
