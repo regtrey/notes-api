@@ -38,31 +38,8 @@ app.get('/', (req, res, next) => {
   res.send('sad');
 });
 
-app.use(
-  '/api/users',
-  app.use((req, res, next) => {
-    res.append('Access-Control-Allow-Origin', [
-      'https://notes-mern-client.vercel.app',
-    ]);
-    res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.append('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-  }),
-  usersRoutes
-);
-app.use(
-  '/api/notes',
-  app.use((req, res, next) => {
-    res.append('Access-Control-Allow-Origin', [
-      'https://notes-mern-client.vercel.app',
-    ]);
-    res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    res.append('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-  }),
-  requiresAuth,
-  notesRoutes
-);
+app.use('/api/users', usersRoutes);
+app.use('/api/notes', requiresAuth, notesRoutes);
 
 // Accessing endpoints that does not exist
 app.use((req, res, next) => {
