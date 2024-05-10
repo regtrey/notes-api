@@ -11,7 +11,7 @@ export const getAuthenticatedUser: RequestHandler = async (req, res, next) => {
 
     res.set(
       'Access-Control-Allow-Origin',
-      'https://notes-mern-client.vercel.app/'
+      'https://notes-mern-client.vercel.app'
     );
     res.status(200).json(user);
   } catch (error) {
