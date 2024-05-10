@@ -38,7 +38,7 @@ app.use(
   })
 );
 
-app.get('/api/example', (req, res, next) => {
+app.get('/', (req, res, next) => {
   res.send('sad');
 });
 
