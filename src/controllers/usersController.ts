@@ -9,6 +9,10 @@ export const getAuthenticatedUser: RequestHandler = async (req, res, next) => {
       .select('+email')
       .exec();
 
+    res.set(
+      'Access-Control-Allow-Origin',
+      'https://notes-mern-client.vercel.app'
+    );
     res.status(200).json(user);
   } catch (error) {
     next(error);
