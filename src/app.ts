@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import express, { NextFunction, Request, Response } from 'express';
-// import cors from 'cors';
+import cors from 'cors';
 import morgan from 'morgan';
 import createHttpError, { isHttpError } from 'http-errors';
 import MongoStore from 'connect-mongo';
@@ -13,11 +13,7 @@ import { requiresAuth } from './middleware/authMiddleware';
 
 const app = express();
 
-// app.use(
-//   cors({
-//     origin: 'https://notes-mern-client.vercel.app',
-//   })
-// );
+app.use(cors());
 app.use(morgan('dev'));
 
 // Accept JSON bodies
