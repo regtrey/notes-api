@@ -15,7 +15,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: 'https://notes-mern-client.vercel.app',
+    origin: 'https://notes-mern-client.vercel.app/',
     allowedHeaders: ['Access-Control-Allow-Origin'],
   })
 );
