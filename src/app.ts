@@ -13,16 +13,8 @@ import { requiresAuth } from './middleware/authMiddleware';
 
 const app = express();
 
-app.use(
-  cors({
-    origin: 'https://notes-mern-client.vercel.app',
-    allowedHeaders: [
-      'Content-Type',
-      'Access-Control-Allow-Origin',
-      'Access-Control-Allow-Methods',
-    ],
-  })
-);
+app.use(cors());
+app.options('*', cors());
 app.use(morgan('dev'));
 
 // Accept JSON bodies
