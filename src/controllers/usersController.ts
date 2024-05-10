@@ -9,10 +9,6 @@ export const getAuthenticatedUser: RequestHandler = async (req, res, next) => {
       .select('+email')
       .exec();
 
-    res.set(
-      'Access-Control-Allow-Origin',
-      'https://notes-mern-client.vercel.app'
-    );
     res.status(200).json(user);
   } catch (error) {
     next(error);
@@ -103,12 +99,6 @@ export const login: RequestHandler<
       throw createHttpError(401, 'Invalid credentials.');
     }
 
-    res.set('Content-Type', 'application/json');
-    res.set(
-      'Access-Control-Allow-Origin',
-      'https://notes-mern-client.vercel.app'
-    );
-    res.set('Access-Control-Allow-Methods', 'POST');
     req.session.userId = user._id;
     res.status(201).json(user);
   } catch (error) {
