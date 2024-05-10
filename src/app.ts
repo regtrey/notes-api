@@ -9,11 +9,15 @@ import session from 'express-session';
 import env from './utils/envValidator';
 import notesRoutes from './routes/notesRoutes';
 import usersRoutes from './routes/usersRoutes';
-// import { requiresAuth } from './middleware/authMiddleware';
+import { requiresAuth } from './middleware/authMiddleware';
 
 const app = express();
 
-app.use(cors());
+app.use(
+  cors({
+    preflightContinue: true,
+  })
+);
 app.use(morgan('dev'));
 
 // Accept JSON bodies
@@ -35,8 +39,7 @@ app.use(
 );
 
 app.use('/api/users', usersRoutes);
-// app.use('/api/notes', requiresAuth, notesRoutes);
-app.use('/api/notes', notesRoutes);
+app.use('/api/notes', requiresAuth, notesRoutes);
 
 // Accessing endpoints that does not exist
 app.use((req, res, next) => {
