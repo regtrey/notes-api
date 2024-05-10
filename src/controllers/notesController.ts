@@ -12,6 +12,11 @@ export const getNotes: RequestHandler = async (req, res, next) => {
     assertIsDefined(authenticatedUserId);
 
     const notes = await NoteModel.find({ userId: authenticatedUserId }).exec();
+
+    res.set(
+      'Access-Control-Allow-Origin',
+      'https://notes-mern-client.vercel.app'
+    );
     res.status(200).json(notes);
   } catch (error) {
     next(error);
