@@ -38,6 +38,10 @@ app.use(
   })
 );
 
+app.use('/api/example', (req, res, next) => {
+  res.send('sad');
+});
+
 app.use(
   '/api/users',
   app.use((req, res, next) => {
@@ -46,7 +50,6 @@ app.use(
     ]);
     res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
     res.append('Access-Control-Allow-Headers', 'Content-Type');
-    res.append('Content-Type', 'application/json');
     next();
   }),
   usersRoutes
