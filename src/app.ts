@@ -14,7 +14,6 @@ import { requiresAuth } from './middleware/authMiddleware';
 const app = express();
 
 app.use(cors());
-app.options('*', cors());
 app.use(morgan('dev'));
 
 // Accept JSON bodies
