@@ -35,7 +35,7 @@ app.use(
 );
 
 app.get('/', (req, res, next) => {
-  res.status(200).json({ message: 'Hello fuckers!' });
+  res.send('Whaaat???');
 });
 
 app.use('/api/users', usersRoutes);
