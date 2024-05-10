@@ -108,6 +108,7 @@ export const login: RequestHandler<
       'Access-Control-Allow-Origin',
       'https://notes-mern-client.vercel.app'
     );
+    res.set('Access-Control-Allow-Methods', 'POST');
     req.session.userId = user._id;
     res.status(201).json(user);
   } catch (error) {
