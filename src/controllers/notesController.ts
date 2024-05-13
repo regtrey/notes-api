@@ -5,13 +5,14 @@ import NoteModel from '../models/NoteModel';
 import { assertIsDefined } from '../utils/assertIsDefined';
 
 export const getNotes: RequestHandler = async (req, res, next) => {
-  const authenticatedUserId = req.session.userId;
+  // const authenticatedUserId = req.session.userId;
 
   try {
     // Check if value is not null
-    assertIsDefined(authenticatedUserId);
+    // assertIsDefined(authenticatedUserId);
 
-    const notes = await NoteModel.find({ userId: authenticatedUserId }).exec();
+    // const notes = await NoteModel.find({ userId: authenticatedUserId }).exec();
+    const notes = await NoteModel.find().exec();
 
     res.status(200).json(notes);
   } catch (error) {

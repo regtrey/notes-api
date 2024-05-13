@@ -43,7 +43,8 @@ app.get('/', (req, res, next) => {
 });
 
 app.use('/api/users', usersRoutes);
-app.use('/api/notes', requiresAuth, notesRoutes);
+// app.use('/api/notes', requiresAuth, notesRoutes);
+app.use('/api/notes', notesRoutes);
 
 // Accessing endpoints that does not exist
 app.use((req, res, next) => {
