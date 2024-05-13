@@ -9,7 +9,7 @@ import session from 'express-session';
 import env from './utils/envValidator';
 import notesRoutes from './routes/notesRoutes';
 import usersRoutes from './routes/usersRoutes';
-import { requiresAuth } from './middleware/authMiddleware';
+// import { requiresAuth } from './middleware/authMiddleware';
 
 const app = express();
 
